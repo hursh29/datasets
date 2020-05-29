@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- materialize css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title> Data Generation</title> 
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.14.5/firebase-app.js"></script>
+       <!-- include only the Firebase features as you need     -->
+    <script defer src="/__/firebase/7.14.5/firebase-auth.js"></script> 
+    <script defer src="/__/firebase/7.14.5/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.14.5/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.14.5/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded   -->
+    <script defer src="/__/firebase/init.js"></script>  
+    
+  </head>
+  <body>
+    
+    <div id="head">Highlight the distractors 🙂</div>
+    <div id="inserted"></div>
+    <center>
+        <canvas id="canvas" ></canvas>
+        <div id="rangeSlider">
+            <form>
+                <label for="customRange" style="font-size: 25;"> Pen width</label>
+                <input type="range" class="custom-range" min="1" max="40" id="customRange">
+            </form>
+            <div id="result">Current width: <b></b></div>
+        </div>
+        <div id="Mode">
+            mode : <span id="mode"> draw ✏ </div>
+        </div>
+        <img id="canvasSaved" alt="">
+        <input type="button" class="btn btn-primary btn-lg" value="draw" onclick="use_tool('draw');" id="draw" />
+        <input type="button" class="btn btn-warning btn-lg" value="erase" onclick="use_tool('erase');" id="erase" />
+        <input type="submit" class="btn btn-success btn-lg" id="submit">
+    </center>
+    <script>
+        $(document).ready(function(){
+            $("#result b").html($("#customRange").val());
+            $("#customRange").change(function(){
+                $("#result b").html($(this).val());
+            });
+        });        
+    </script>  
+     
+    <link rel="stylesheet" href="style.css">
+    <script lang="text.javascript" defer src="fire_base.js"></script>            
+    <script lang="text/javascript" defer src="canvas.js"></script>
+  </body>
+</html>
