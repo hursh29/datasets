@@ -1,11 +1,12 @@
 canvas {
     cursor: crosshair;
     border: 5px solid whitesmoke;
-    margin-bottom: 2px;
-}
-#result{
-    font-size: 2em;
+    margin-bottom: 1px;
 } 
+#customRange{
+    border: 0px;
+    padding-bottom: 0px;
+}
 label{
     font-size: 2em ;
 }
@@ -19,7 +20,7 @@ img{
     padding-bottom: 0.2em;
 }
 form {
-    width: fit-content;
+    width: 35%;
 }
 #head{
     color: white;
@@ -28,12 +29,9 @@ form {
     font-size: 50px;
     padding-bottom: 1%;
 }
-center{
-    margin-bottom: 5%;
-} 
 #rangeSlider{
-    color : white ;
-    padding-bottom: 1%;
+    color : white ;  
+    font-size: 2em;
 }
 body{
     background-color: rgb(32, 32, 32);
@@ -41,8 +39,8 @@ body{
 .btn{  
     color: white;
     font-weight: 700; 
-    padding-left: 2%;
-    padding-right: 2%; 
-    margin-left: 1%;
-    margin-right: 1%;
+    padding-left: 2.5%;
+    padding-right: 2.5%; 
+    margin-left: 0.5%;
+    margin-right: 0.5%;
 }
