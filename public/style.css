@@ -1,21 +1,18 @@
 canvas {
     cursor: crosshair;
-    border: 5px solid whitesmoke;
+    border: 2px solid whitesmoke;
     margin-bottom: 1px;
-} 
+}  
 #customRange{
-    border: 0px;
-    padding-bottom: 0px;
+    border: 0px; 
+    margin-top: 0.5em;
+    margin-bottom: 0em;
 }
 label{
     font-size: 2em ;
-}
-img{ 
-    max-width: 200px;
-    max-height: 100;
-}
+} 
 #Mode {
-    font-size: 2em;
+    font-size: 3vw;
     color: white;
     padding-bottom: 0.2em;
 }
@@ -26,12 +23,12 @@ form {
     color: white;
     text-align: center; 
     font-weight: 550;
-    font-size: 50px;
+    font-size: 3vw;
     padding-bottom: 1%;
 }
 #rangeSlider{
     color : white ;  
-    font-size: 2em;
+    font-size: 2vw;
 }
 body{
     background-color: rgb(32, 32, 32);
@@ -39,8 +36,27 @@ body{
 .btn{  
     color: white;
     font-weight: 700; 
+    margin-bottom: 1%;
+    padding: 0;
     padding-left: 2.5%;
     padding-right: 2.5%; 
     margin-left: 0.5%;
-    margin-right: 0.5%;
+    margin-right: 1%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    /* font-size: 1vw; */
+    /* font-size: smaller ; */
+    /* height: 2vh; */
+}
+#draw{
+    background-color: rgb(35, 57, 255);
+}
+#erase{
+    background-color: #ffc107;
+}
+#submit{
+    background-color: #00811e;
+}
+#reset{
+    background-color: #ac0011;
 }

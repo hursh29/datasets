@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" >
     <!-- materialize css  -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    >
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -36,37 +36,41 @@
     <script defer src="/__/firebase/init.js"></script>
   </head>
   <body>
-    <div id="head">Highlight the distractors 🙂</div>
-    <center>
-      <canvas id="canvas" height="400" width="600"></canvas>
-      <div id="rangeSlider">
-        Only <span id="moreToGo"> 10 </span> to go ... |
-        <span id="result">Pen width: <b></b></span>
-        <form>
-          <input
-            type="range"
-            class="custom-range"
-            min="1"
-            max="40"
-            id="customRange"
-          >
-        </form>
-      </div>
-
-      <div id="Mode">
-        Mode : <span id="mode"> <strong>draw ✏ </strong></span>
-      </div>
-      <input type="button" class="btn btn-primary" value="draw" id="draw" />
-      <input type="button" class="btn btn-warning" value="erase" id="erase" />
-      <input type="submit" class="btn btn-success" value="next" id="submit" />
-      <input
-        type="button"
-        class="btn btn-danger"
-        value="reset"
-        id="reset"
-        onclick="eraseAll()"
-      > 
-    </center>
+      <div class="container-fluid">
+      <div id="head">Highlight the distractors 🙂</div>
+      <center>
+        <canvas id="canvas" ></canvas>
+        <div id="rangeSlider">
+          Only <span id="moreToGo"> 10 </span> to go ... |
+          <span id="result">Pen width: <b></b></span>
+          <form>
+            <input
+              type="range"
+              class="custom-range"
+              min="1"
+              max="40"
+              id="customRange"
+            >
+          </form>
+  
+        <div id="Mode">
+          Mode : <span id="mode"> draw ✏  </span>
+        </div>
+          <input type="button" class="btn" value="draw" id="draw" >
+          <input type="button" class="btn" value="erase" id="erase" >
+          <input type="submit" class="btn" value="next" id="submit" >
+          <input type="button" class="btn"value="reset" id="reset" onclick="eraseAll()">   
+      </center>
+    </div>
+    <script>
+      window.onload = function(){
+        init();
+        window.addEventListener('resize',init,false);
+      }
+      function init(){
+        console.log('html',window.innerWidth,window.innerHeight);
+      }
+    </script>
     <script>
       $(document).ready(function () {
         $("#result b").html($("#customRange").val());
@@ -80,3 +84,5 @@
     <script lang="text/javascript" defer src="canvas.js"></script>
   </body>
 </html>
+
+ 
