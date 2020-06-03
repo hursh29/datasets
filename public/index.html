@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
     <!-- materialize css  -->
     <link
       rel="stylesheet"
@@ -35,22 +35,16 @@
     <!-- initialize the SDK after all desired features are loaded   -->
     <script defer src="/__/firebase/init.js"></script>
   </head>
-  <body>
-      <div class="container-fluid">
+  <body> 
       <div id="head">Highlight the distractors 🙂</div>
       <center>
         <canvas id="canvas" ></canvas>
         <div id="rangeSlider">
           Only <span id="moreToGo"> 10 </span> to go ... |
           <span id="result">Pen width: <b></b></span>
+        </div>
           <form>
-            <input
-              type="range"
-              class="custom-range"
-              min="1"
-              max="40"
-              id="customRange"
-            >
+            <input type="range" class="custom-range" min="1" max="40" id="customRange">
           </form>
   
         <div id="Mode">
@@ -61,14 +55,13 @@
           <input type="submit" class="btn" value="next" id="submit" >
           <input type="button" class="btn"value="reset" id="reset" onclick="eraseAll()">   
       </center>
-    </div>
     <script>
       window.onload = function(){
         init();
         window.addEventListener('resize',init,false);
       }
       function init(){
-        console.log('html',window.innerWidth,window.innerHeight);
+        // console.log('html',window.innerWidth,window.innerHeight);
       }
     </script>
     <script>

@@ -14,20 +14,20 @@ document.getElementById('draw').addEventListener('click',function(){
 
 //Mousedown
 $('canvas').on('mousedown touchdown',function(e){
+        e.preventDefault();
         last_mousex = mousex = parseInt(e.clientX-this.offsetLeft);
         last_mousey = mousey = parseInt(e.clientY-this.offsetTop);
-        // e.preventDefault();
         mousedown = true;
     })  
 
 //Mouseup
 $('canvas').on('mouseup touchup',function(e){
-        // e.preventDefault();
+        e.preventDefault();
         mousedown = false;
     })
 //Mousemove
 $('canvas').on('mousemove touchmove',function(e){
-        // e.preventDefault();
+        e.preventDefault();
         mousex = parseInt(e.pageX-this.offsetLeft);
         mousey = parseInt(e.pageY-this.offsetTop);
         if(mousedown) {
@@ -51,3 +51,7 @@ $('canvas').on('mousemove touchmove',function(e){
         last_mousey = mousey;
     
     })
+
+function eraseAll() {
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+} 

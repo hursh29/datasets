@@ -1,7 +1,7 @@
 let i = 0;
 let output_file_name;
 let maxSubmit = 10;
-console.log( 'js', window.innerWidth, window.innerHeight) ;
+// console.log( 'js', window.innerWidth, window.innerHeight) ;
 var ctx = canvas.getContext("2d");
 let loading = new Image();
 loading.src = 'loading.png';
@@ -10,25 +10,25 @@ let canvasHeight,canvasWidth;
 // canvasHeight = 400; 
 canvasWidth = 0.44*window.innerWidth;
 canvasHeight = 0.6667*canvasWidth;
-// canvasWidth = Math.min(600.0,canvasWidth);
-// canvasHeight = Math.min(400.0,canvasHeight);
+canvasWidth = Math.min(600.0,canvasWidth);
+canvasHeight = Math.min(400.0,canvasHeight);
 ctx.canvas.width = canvasWidth ;
 ctx.canvas.height = canvasHeight; 
-console.log(canvasWidth ,canvasHeight,'#canvas'); 
+// console.log(canvasWidth ,canvasHeight,'#canvas'); 
 document.querySelector('canvas').style.backgroundImage = 'URL(loading.png)' 
 document.querySelector("canvas").style.backgroundSize =`${canvasWidth}px ${canvasHeight}px`
-        
+let database_value = 0 ;     
 let databaseReference = firebase.database().ref().child("displayImage/currentIndex");
 databaseReference.on("value", function (snapshot) {
     i = snapshot.val();
-    i %= 1003;
+    database_value = i%1003;
     firebase.storage().ref()
         .child("input_datasets/")
         .listAll()
         .then(function (result) {
-            output_file_name = parseInt(result.items[i].name.split(".")[0]);
-            console.log(i, "displaying", output_file_name);
-            displayImage(i, result.items[i]);
+            output_file_name = parseInt(result.items[database_value].name.split(".")[0]);
+            console.log( database_value, "displaying", output_file_name);
+            displayImage( database_value, result.items[database_value]);
         })
         .catch((err) => alert("Error Occured 😑" + `${err}`));
 });
@@ -67,7 +67,7 @@ let img = new Image();
 img.onload = function() { 
     console.log('0image',this.width,this.height);
     img.crossOrigin = "anonymous";
-    ctx.drawImage(img, 0, 0, 316, 211);  
+    // ctx.drawImage(img, 0, 0, 316, 211);  
 };   
     
 function displayImage(row, images) {
@@ -83,6 +83,4 @@ function displayImage(row, images) {
         // console.log(url);
     });
 }
-function eraseAll() {
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-} 
+ 

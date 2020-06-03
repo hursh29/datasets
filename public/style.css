@@ -1,6 +1,6 @@
 canvas {
     cursor: crosshair;
-    border: 2px solid whitesmoke;
+    border: 3px solid whitesmoke;
     margin-bottom: 1px;
 }  
 #customRange{
@@ -9,12 +9,12 @@ canvas {
     margin-bottom: 0em;
 }
 label{
-    font-size: 2em ;
+    font-size: 1.5vw ;
 } 
 #Mode {
-    font-size: 3vw;
+    font-size: 1.5vw;
     color: white;
-    padding-bottom: 0.2em;
+    padding-bottom: 0.1em;
 }
 form {
     width: 35%;
@@ -23,19 +23,20 @@ form {
     color: white;
     text-align: center; 
     font-weight: 550;
-    font-size: 3vw;
-    padding-bottom: 1%;
+    font-size: 2vw;
+    padding-bottom: 0.1vw;
 }
 #rangeSlider{
     color : white ;  
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 body{
     background-color: rgb(32, 32, 32);
 }
 .btn{  
     color: white;
-    font-weight: 700; 
+    height: 5vh;
+    font-weight: 500; 
     margin-bottom: 1%;
     padding: 0;
     padding-left: 2.5%;
