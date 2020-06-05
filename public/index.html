@@ -39,8 +39,7 @@
       <div id="head">Highlight the distractors 🙂</div>
       <center>
         <canvas id="canvas" ></canvas>
-        <div id="rangeSlider">
-          Only <span id="moreToGo"> 10 </span> to go ... |
+        <div id="rangeSlider"> 
           <span id="result">Pen width: <b></b></span>
         </div>
           <form>
@@ -52,10 +51,10 @@
         </div>
           <input type="button" class="btn" value="draw" id="draw" >
           <input type="button" class="btn" value="erase" id="erase" >
-          <input type="submit" class="btn" value="next" id="submit" >
+          <input type="submit" class="btn" value="Submit" id="submit" onclick="fire()" >
           <input type="button" class="btn"value="reset" id="reset" onclick="eraseAll()">   
-      </center>
- 
+          <input type="button" class="btn" value="finish" id="stop" onclick="window.location.href = '/404.html'" >
+      </center> 
     <script>
       $(document).ready(function () {
         $("#result b").html($("#customRange").val());
@@ -63,6 +62,13 @@
           $("#result b").html($(this).val());
         });
       });
+      
+      function fire(){
+             window.location = window.location.href
+       }
+
+       /// ek kaam karo...ek naya page banado...jisme bas wo image 
+        
     </script>
     <link rel="stylesheet" href="style.css" />
     <script lang="text/javascript" defer src="fire_base.js"> </script>
