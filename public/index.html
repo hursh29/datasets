@@ -55,15 +55,7 @@
           <input type="submit" class="btn" value="next" id="submit" >
           <input type="button" class="btn"value="reset" id="reset" onclick="eraseAll()">   
       </center>
-    <script>
-      window.onload = function(){
-        init();
-        window.addEventListener('resize',init,false);
-      }
-      function init(){
-        // console.log('html',window.innerWidth,window.innerHeight);
-      }
-    </script>
+ 
     <script>
       $(document).ready(function () {
         $("#result b").html($("#customRange").val());

@@ -19,9 +19,13 @@ document.querySelector('canvas').style.backgroundImage = 'URL(loading.png)'
 document.querySelector("canvas").style.backgroundSize =`${canvasWidth}px ${canvasHeight}px`
 let database_value = 0 ;     
 let databaseReference = firebase.database().ref().child("displayImage/currentIndex");
+// firebase.storage().ref().child("input_datasets/").listAll().then(function(result){
+    // console.log(result.items.length,'total input files')
+// })
+
 databaseReference.on("value", function (snapshot) {
     i = snapshot.val();
-    database_value = i%1003;
+    database_value = (i)%1712;
     firebase.storage().ref()
         .child("input_datasets/")
         .listAll()
@@ -32,33 +36,32 @@ databaseReference.on("value", function (snapshot) {
         })
         .catch((err) => alert("Error Occured 😑" + `${err}`));
 });
-// database working
+// database workings
 let userSession = 0;
 document.querySelector("#submit").addEventListener("click", function () {
     userSession++;
     const imageDataURL = canvas.toDataURL("image/jpeg");
     // console.log(imageDataURL);
     let path ="output/" +`${output_file_name}/`+`output_${output_file_name}_` +`${new Date()}`;
+    // updating database
     firebase.storage().ref()
-        .child(path)
-        .putString(imageDataURL, "data_url")
-        .then(function (snapshot) {
+        .child(path).putString(imageDataURL, "data_url").then(function (snapshot) {
             firebase.database().ref()
                 .child("displayImage").update({ currentIndex: i + 1 });
             console.log("image session", userSession);
  
-            document.getElementById("moreToGo").innerHTML = maxSubmit - userSession;
-            if (userSession == maxSubmit - 1) {
-                document.querySelector("#submit").value = "submit";
-            }
-            if (userSession == maxSubmit) {
-                alert("Images submitted!! Thanks for your response 😊");
-                window.location = window.location.href
-            }
-            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-            document.querySelector("canvas").style.backgroundImage = 'URL("' + 'loading.png' + '")' 
-            document.querySelector("canvas").style.backgroundSize =`${canvasWidth}px ${canvasHeight}px`
-        
+    document.getElementById("moreToGo").innerHTML = maxSubmit - userSession;
+    if (userSession == maxSubmit - 1) {
+        document.querySelector("#submit").value = "submit";
+    }
+    if (userSession == maxSubmit) {
+        alert("Images submitted!! Thanks for your response 😊");
+        window.location = window.location.href
+    }
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    document.querySelector("canvas").style.backgroundImage = 'URL("' + 'loading.png' + '")' 
+    document.querySelector("canvas").style.backgroundSize =`${canvasWidth}px ${canvasHeight}px`
+    
             // img.src = 'loading.png';
         })
         .catch(() => alert("Oops !!! Data not submitted 😣"));
